@@ -84,6 +84,19 @@ img {
 .header-link:focus {
   color: #404bbf;
 }
+.header-link.active {
+  color: #404bbf;
+}
+.header-link.active::after {
+  content: "";
+  position: absolute;
+  bottom: -3px;
+  display: block;
+  width: 100%;
+  height: 4px;
+  border-radius: 2px;
+  background-color: #404bbf;
+}
 .header-botton {
   font-family: Raleway, sans-serif;
   color: #2e2f42;
@@ -94,6 +107,7 @@ img {
   text-transform: uppercase;
 }
 .header-link {
+  position: relative;
   color: inherit;
   padding: 24px 0;
   font-size: 16px;
@@ -151,10 +165,17 @@ img {
 /* Main section */
 
 .main {
-  background-color: #2e2f42;
+  background-color: #2f2e42;
   padding: 188px 0;
+  background-image: linear-gradient(
+      rgba(46, 47, 66, 0.7),
+      rgba(46, 47, 66, 0.7)
+    ),
+    url(../images/people-office.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 }
-
 .main-title {
   max-width: 496px;
   margin-bottom: 48px;
@@ -209,6 +230,19 @@ img {
   width: 260px;
   width: calc((100% - 72px) / 4);
 }
+.cuality-wrapper {
+  width: 264px;
+  height: 112px;
+  margin-bottom: 8px;
+  border-radius: 4px;
+  border: 1px solid #8e8f99;
+  background-color: #f4f4fd;
+}
+.cuality-icon {
+  width: 64px;
+  height: 64px;
+  margin: 24px 100px;
+}
 .cualities-title {
   margin-bottom: 8px;
   color: #2e2f42;
@@ -249,11 +283,15 @@ img {
 .team-item {
   border-radius: 0px 0px 4px 4px;
   background-color: #ffffff;
+  border-radius: 0px 0px 4px 4px;
+  background: var(--WHITE, #fff);
+  box-shadow: 0px 2px 1px 0px rgba(46, 47, 66, 0.08),
+    0px 1px 1px 0px rgba(46, 47, 66, 0.16),
+    0px 1px 6px 0px rgba(46, 47, 66, 0.08);
 }
 .team-wrapper {
   padding: 32px 0;
 }
-
 .team-title {
   display: flex;
   justify-content: center;
@@ -272,6 +310,39 @@ img {
   font-weight: 400;
   line-height: 1.5;
   letter-spacing: 0.02em;
+}
+
+/*Team socials*/
+
+.socials {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+  margin-top: 8px;
+}
+.socials-item {
+  width: 40px;
+  height: 40px;
+}
+.socials-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  background-color: #4d5ae5;
+  border-radius: 50%;
+  color: #f4f4fd;
+}
+.socials-link:hover {
+  background-color: #404bbf;
+}
+.socials-link:focus {
+  background-color: #404bbf;
+}
+.socials-icon {
+  fill: currentColor;
 }
 
 /* Portfolio section */
@@ -301,13 +372,20 @@ img {
 .portfolio-item {
   width: 360px;
 }
+.portfolio-item:hover .overlay{
+transform: translateY(0);
+}
+.portfolio-item:hover {
+  box-shadow: 0px 2px 1px 0px rgba(46, 47, 66, 0.08),
+    0px 1px 1px 0px rgba(46, 47, 66, 0.16),
+    0px 1px 6px 0px rgba(46, 47, 66, 0.08);
+}
 .portfolio-item:last-child {
   margin-bottom: 0;
 }
 .portfolio-name {
   margin-bottom: 8px;
   color: #2e2f42;
-  text-align: center;
   font-size: 20px;
   font-weight: 500;
   line-height: 1.2;
@@ -315,10 +393,31 @@ img {
 }
 .portfolio-text {
   margin: 0;
-  text-align: center;
   line-height: 1.5;
   letter-spacing: 0.02em;
   color: #434455;
+}
+.portfolio-wrapper {
+  position: relative;
+  overflow: hidden;
+}
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin-top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #4d5ae5;
+  padding-top: 40px;
+  padding-right: 32px;
+  padding-left: 32px;
+  padding-bottom: auto;
+  color: #f4f4fd;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+  transform: translateY(100%);
+  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .wrapper {
   padding: 32px 16px;
@@ -352,4 +451,44 @@ img {
   color: #f4f4fd;
   line-height: 1.5;
   letter-spacing: 0.02em;
+}
+
+.footer-container {
+  display: flex;
+}
+.footer-title {
+  margin-bottom: 16px;
+  color: #ffffff;
+}
+.footer-socials {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+}
+.footer-socials-item {
+  width: 40px;
+  height: 40px;
+}
+.footer-socials-link {
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  background-color: #4d5ae5;
+  border-radius: 50%;
+  color: #f4f4fd;
+}
+.footer-socials-link:hover {
+  background-color: #31d0aa;
+}
+.footer-socials-link:focus {
+  background-color: #404bbf;
+}
+.footer-socials-icon {
+  fill: currentColor;
+}
+.footer-wrapper{
+  margin-right: 120px;
 }
